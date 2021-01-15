@@ -2,8 +2,8 @@ require('dotenv').config(); // Allows use of environmental variables from the .e
 const express = require('express'); // Fast web framework for node js
 const helmet = require('helmet'); // Helps secure express app
 var { graphqlHTTP } = require('express-graphql');
-const Schema = require('./schema/schema');
-const { conn } = require('./db');
+// const Schema = require('./schema/schema');
+// const { conn } = require('./db');
 
 // Getting main api file and loading custom middlewares
 const middlewares = require('./middlewares.js');
@@ -24,19 +24,19 @@ const main = async () => {
     app.use('/api', api);
 
     // Graphql
-    app.use('/graphql', graphqlHTTP({
-        schema: Schema,
-        pretty: true,
-        graphiql: true
-    }));
+    // app.use('/graphql', graphqlHTTP({
+    //     schema: Schema,
+    //     pretty: true,
+    //     graphiql: true
+    // }));
 
 
-    try {
-        await conn.authenticate();
-        console.log('Connection has been established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
+    // try {
+    //     await conn.authenticate();
+    //     console.log('Connection has been established successfully.');
+    // } catch (error) {
+    //     console.error('Unable to connect to the database:', error);
+    // }
 
 
     // Setting up node js server
