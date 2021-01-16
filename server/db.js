@@ -3,7 +3,9 @@ const Sequelize = require('sequelize');
 const Faker = require('faker');
 const _ = require('lodash');
 
-const Conn = new Sequelize(process.env.DATABASE_URL);
+const Conn = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgresql',
+});
 
 const User = Conn.define('user', {
   username: {
