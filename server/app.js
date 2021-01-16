@@ -2,8 +2,8 @@ require('dotenv').config(); // Allows use of environmental variables from the .e
 const express = require('express'); // Fast web framework for node js
 const helmet = require('helmet'); // Helps secure express app
 var { graphqlHTTP } = require('express-graphql');
-const Schema = require('./schema/schema');
-const { conn } = require('./db');
+const Schema = require('./database/schema');
+const { conn } = require('./database/db');
 
 // Getting main api file and loading custom middlewares
 const middlewares = require('./middlewares.js');
